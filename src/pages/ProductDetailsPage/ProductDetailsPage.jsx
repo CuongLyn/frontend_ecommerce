@@ -3,9 +3,12 @@ import ProductDetailsComponent from '../../components/ProductDetailsComponent/Pr
 
 const ProductDetailsPage = () => {
   return (
-    <div style={{padding: '0px 120px', backgroundColor: '#F5F5FA' }}>
+    <div style={{padding: '0px 120px', backgroundColor: '#F5F5FA', height: '1000px'}}>
       <span style={{color: 'rgb(128, 128, 137)', fontSize: '14px'}}>Trang chủ</span>
-      <ProductDetailsComponent />
+      <div>
+
+        <ProductDetailsComponent />
+      </div>
     </div>
   )
 }

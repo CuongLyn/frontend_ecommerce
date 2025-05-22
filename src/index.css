@@ -11,3 +11,8 @@ body {
 html {
   font-size: 62.5%;
 }
+.ant-input-number-outlined {
+    width: 60px !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}

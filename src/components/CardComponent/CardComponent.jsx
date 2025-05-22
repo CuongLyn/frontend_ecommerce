@@ -21,7 +21,7 @@ const CardComponent = () => {
         <span>
           <span>4.96 </span> <StarFilled style={{fontSize: '10px', color: '#FFC70D'}} />
         </span>
-        <span style={{ marginLeft: '8px'}}> | Đã bán 1000+</span>
+        <span style={{ marginLeft: '8px', color: 'rgb(128, 128, 137)', fontSize: '14px'}}> | Đã bán 1000+</span>
       </WrapperReportText>
       <WrapperPriceText>
         <span>24.000.000đ</span>

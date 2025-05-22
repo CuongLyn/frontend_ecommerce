@@ -3,12 +3,14 @@ import { Button } from 'antd';
 
 const ButtonComponent = ({
   children,
-  type = "default", // "primary", "dashed", "link", "text", "default"
+  type = "default",
   htmlType = "button",
   onClick,
   disabled = false,
   className = "",
-  style = {},
+  styleButton = {},
+  textButton,
+  styleTextButton = {},
   ...rest
 }) => {
   return (
@@ -18,10 +20,12 @@ const ButtonComponent = ({
       onClick={onClick}
       disabled={disabled}
       className={className}
-      style={style}
+      style={styleButton}
       {...rest}
     >
-      {children}
+      <span style={styleTextButton}>
+        {textButton || children}
+      </span>
     </Button>
   );
 };

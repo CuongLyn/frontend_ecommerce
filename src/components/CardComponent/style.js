@@ -10,7 +10,7 @@ export const WrapperCardStyle = styled(Card)`
     }
 `
 export const StyleNameProduct = styled.div`
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     color: #27272a;
     line-height: 16px;
