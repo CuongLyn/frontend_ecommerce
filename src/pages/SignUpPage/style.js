@@ -15,6 +15,8 @@ export const WrapperContainerRight = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 4px;
+     border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
    
 `
 

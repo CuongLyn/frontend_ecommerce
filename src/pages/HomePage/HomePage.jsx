@@ -1,8 +1,6 @@
 import TypeProduct from "../../components/TypeProduct/TypeProduct";
 import SliderComponent from "../../components/SliderComponent/SliderComponent";
 import CardComponent from "../../components/CardComponent/CardComponent";
-import NavbarComponent from "../../components/NavbarComponent/NavbarComponent";
-import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import { WrapperTypeProduct, WrapperButtonMore, WrapperProducts } from "./style";
 import slider1 from "../../assets/images/slider1.webp";
 import slider2 from "../../assets/images/slider2.webp";

@@ -11,9 +11,9 @@ const AccountComponent = () => {
     <WrapperHeaderAccount>
       <UserOutlined style={{ fontSize: '24px' }} />
       <div>
-        <span style={{ whiteSpace: 'nowrap' }}>Đăng ký/Đăng nhập</span>
+        <span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>Đăng ký/Đăng nhập</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <span>Tài khoản</span>
+          <span style={{ cursor: 'pointer' }}>Tài khoản</span>
           <CaretDownOutlined />
         </div>
       </div>

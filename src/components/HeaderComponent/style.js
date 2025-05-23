@@ -19,4 +19,5 @@ export const WrapperHeaderAccount = styled.div`
     gap: 10px;
     font-size: 12px;
     
+    
 `

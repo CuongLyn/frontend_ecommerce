@@ -7,7 +7,6 @@ export const WrapperTypeProduct = styled.div`
     gap: 24px;
     justify-content: flex-start;
     font-size: 16px;
-    border-bottom: 1px solid rgb(139, 138, 138);
     height: 44px;
 `
 
@@ -28,7 +27,7 @@ export const WrapperButtonMore = styled(ButtonComponent)`
 export const WrapperProducts = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
+    gap: 14px;
     margin-top: 20px;
     width: 100%;
 `
