@@ -31,12 +31,12 @@ import TypeProductPage from '../pages/TypeProductPage/TypeProductPage';
     {
     path: '/sign-up',
     page: SignUpPage,
-    isShowHeader: true
+    isShowHeader: false
     },
     {
     path: '/sign-in',
     page: SignInPage,
-    isShowHeader: true
+    isShowHeader: false
     },
     {
     path: '/product-details',

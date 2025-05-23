@@ -24,7 +24,7 @@ const CardComponent = () => {
         <span style={{ marginLeft: '8px', color: 'rgb(128, 128, 137)', fontSize: '14px'}}> | Đã bán 1000+</span>
       </WrapperReportText>
       <WrapperPriceText>
-        <span>24.000.000đ</span>
+        <span style={{marginRight: '4px'}}>24.000.000đ</span>
         <span style={{fontSize: '12px'}}> -6%</span>
       </WrapperPriceText>
     </WrapperCardStyle>

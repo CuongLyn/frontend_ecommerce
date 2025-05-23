@@ -7,7 +7,7 @@ export const WrapperTypeProduct = styled.div`
     gap: 24px;
     justify-content: flex-start;
     font-size: 16px;
-    border-bottom: 1px solid rgb(255, 8, 8);
+    border-bottom: 1px solid rgb(139, 138, 138);
     height: 44px;
 `
 
