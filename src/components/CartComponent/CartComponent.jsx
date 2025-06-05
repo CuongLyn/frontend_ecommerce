@@ -10,7 +10,7 @@ const CartComponent = () => {
       <Badge count={5} size='small' style={{ backgroundColor: '#FF4C59' }}>
         <ShoppingCartOutlined style={{ fontSize: '24px', color: '#FFFFFF' }} />
       </Badge>
-      <span style={{ whiteSpace: 'nowrap' }}>Giỏ hàng</span>
+      <span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>Giỏ hàng</span>
     </WrapperHeaderAccount>
   )
 }
