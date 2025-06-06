@@ -6,6 +6,9 @@ import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import imgLogo from '../../assets/images/imgSignIn.png'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import * as UserService from '../../services/UserService'
+import { useMutationHooks } from '../../hooks/useMutationHook'
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 const SignUpPage = () => {
 
   const navigate = useNavigate();
@@ -22,7 +25,20 @@ const SignUpPage = () => {
   const handleSignUp = () => {
     // Handle sign-up logic here
     console.log('Sign Up with:', { email, password, confirmPassword });
+    mutation.mutate({ 
+      email, password, confirmPassword 
+    });
+   
   }
+
+  //call api
+  const mutation = useMutationHooks(
+    data => UserService.signUpUser(data)
+  );
+
+  console.log('mutation: ', mutation)
+
+  const { data, isPending } = mutation
 
 
   return (
@@ -46,23 +62,26 @@ const SignUpPage = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <ButtonComponent
-            disabled={!email.length || !confirmPassword.length || !password.length}
-            onClick={handleSignUp}
-            size={20}
-            styleButton={{
-              background: (!email.length || !password.length || !confirmPassword.length) ? '#ccc' : 'rgb(255, 57, 69)',
-              height: '48px',
-              width: '100%',
-              border: 'none',
-              borderRadius: '4px',
-              margin: '26px 0 10px',
-              cursor: (!email.length || !password.length || !confirmPassword.length) ? 'not-allowed' : 'pointer'
-            }}
-            textButton={'Đăng ký'}
-            styleTextButton={{color: '#fff'}}
-          > 
-          </ButtonComponent>
+          {data?.status === 'ERR' && <span style={{color: 'red'}}>{data?.message}</span>}
+          <LoadingComponent isPending={isPending} >
+            <ButtonComponent
+              disabled={!email.length || !confirmPassword.length || !password.length}
+              onClick={handleSignUp}
+              size={20}
+              styleButton={{
+                background: (!email.length || !password.length || !confirmPassword.length) ? '#ccc' : 'rgb(255, 57, 69)',
+                height: '48px',
+                width: '100%',
+                border: 'none',
+                borderRadius: '4px',
+                margin: '26px 0 10px',
+                cursor: (!email.length || !password.length || !confirmPassword.length) ? 'not-allowed' : 'pointer'
+              }}
+              textButton={'Đăng ký'}
+              styleTextButton={{color: '#fff'}}
+            > 
+            </ButtonComponent>
+          </LoadingComponent>
 
           <WrapperTextLight>
             <span>Quên mật khẩu?</span>

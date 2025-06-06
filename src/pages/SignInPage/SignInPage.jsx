@@ -5,6 +5,10 @@ import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import imgLogo from '../../assets/images/imgSignIn.png'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import * as UserService from '../../services/UserService'
+import { useMutationHooks } from '../../hooks/useMutationHook'
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 
 
 const SignInPage = () => {
@@ -19,7 +23,20 @@ const SignInPage = () => {
   const handleSingIn = () => {
     // Handle sign-in logic here
     console.log('Sign In with:', { email, password });
+    mutation.mutate({ 
+      email, password 
+    })
   }
+
+  //call api
+  const mutation = useMutationHooks(
+    data => UserService.loginUser(data)
+  )
+
+  console.log('mutation: ', mutation)
+
+  const {data, isPending} = mutation
+
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'rgba(0, 0, 0, 0.53)', height: '100vh' }}>
@@ -41,24 +58,26 @@ const SignInPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
-          <ButtonComponent
-            disabled={!email.length || !password.length}
-            onClick={handleSingIn}
-            size={20}
-            styleButton={{
-              background: (!email.length || !password.length) ? '#ccc' : 'rgb(255, 57, 69)',
-              height: '48px',
-              width: '100%',
-              border: 'none',
-              borderRadius: '4px',
-              margin: '26px 0 10px',
+          {data?.status === 'ERR' && <span style={{color: 'red'}}>{data?.message}</span>}
+          <LoadingComponent isPending={isPending}>
+            <ButtonComponent
+              disabled={!email.length || !password.length}
+              onClick={handleSingIn}
+              size={20}
+              styleButton={{
+                background: (!email.length || !password.length) ? '#ccc' : 'rgb(255, 57, 69)',
+                height: '48px',
+                width: '100%',
+                border: 'none',
+                borderRadius: '4px',
+                margin: '26px 0 10px',
               cursor: (!email.length || !password.length) ? 'not-allowed' : 'pointer'
-            }}
-            textButton={'Tiếp tục'}
-            styleTextButton={{color: '#fff'}}
-          > 
-          </ButtonComponent>
+              }}
+              textButton={'Đăng nhập'}
+              styleTextButton={{color: '#fff'}}
+            > 
+            </ButtonComponent>
+          </LoadingComponent>
 
           <WrapperTextLight>
             <span>Quên mật khẩu?</span>
