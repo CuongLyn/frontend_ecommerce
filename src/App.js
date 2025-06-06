@@ -13,15 +13,15 @@ function App() {
   //   // Gọi hàm fetchApi khi component được mount
   //   fetchApi()
   // })
-  console.log('api: ', process.env.REACT_APP_API_URL_BACKEND)
-  const fetchApi = async () => {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/product/getAll`)
-    return res.data
-  }
+  // console.log('api: ', process.env.REACT_APP_API_URL_BACKEND)
+  // const fetchApi = async () => {
+  //   const res = await axios.get(`${process.env.REACT_APP_API_URL_BACKEND}/product/getAll`)
+  //   return res.data
+  // }
 
-  const query = useQuery({ queryKey: ['todos'], queryFn: fetchApi })
+  // const query = useQuery({ queryKey: ['todos'], queryFn: fetchApi })
 
-  console.log('query: ', query)
+  // console.log('query: ', query)
 
   return (
     <div>

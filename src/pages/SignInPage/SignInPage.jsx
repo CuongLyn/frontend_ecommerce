@@ -1,15 +1,26 @@
-
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextLight } from './style'
 import {  Image } from 'antd'
 import InputFormComponent from '../../components/InputFormComponent/InputFormComponent'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import imgLogo from '../../assets/images/imgSignIn.png'
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const handleNavigateToSignUp = () => {
+    // Navigate to sign-up page
+    navigate('/sign-up');
+  }
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSingIn = () => {
+    // Handle sign-in logic here
+    console.log('Sign In with:', { email, password });
+  }
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'rgba(0, 0, 0, 0.53)', height: '100vh' }}>
       <div style={{width: '800px', height: '444px', borderRadius: '12px', backgroundColor: '#fff', display: 'flex'}}>
@@ -32,8 +43,18 @@ const SignInPage = () => {
           />
 
           <ButtonComponent
+            disabled={!email.length || !password.length}
+            onClick={handleSingIn}
             size={20}
-            styleButton={{background: 'rgb(255, 57, 69)', height: '48px', width: '100%', border: 'none', borderRadius: '4px', margin: '26px 0 10px'}}
+            styleButton={{
+              background: (!email.length || !password.length) ? '#ccc' : 'rgb(255, 57, 69)',
+              height: '48px',
+              width: '100%',
+              border: 'none',
+              borderRadius: '4px',
+              margin: '26px 0 10px',
+              cursor: (!email.length || !password.length) ? 'not-allowed' : 'pointer'
+            }}
             textButton={'Tiếp tục'}
             styleTextButton={{color: '#fff'}}
           > 
@@ -42,7 +63,7 @@ const SignInPage = () => {
           <WrapperTextLight>
             <span>Quên mật khẩu?</span>
           </WrapperTextLight>
-          <span style={{fontSize: '14px', textAlign: 'center'}}>Chưa có tài khoản?<WrapperTextLight> Đăng ký ngay</WrapperTextLight></span>
+          <span style={{fontSize: '14px', textAlign: 'center'}}>Chưa có tài khoản?<WrapperTextLight onClick={handleNavigateToSignUp}> Đăng ký ngay</WrapperTextLight></span>
         </WrapperContainerLeft>
         <WrapperContainerRight>
           <Image src={imgLogo} preview={false} alt='img-logo' height={'203px'} width={'203px'}/>
